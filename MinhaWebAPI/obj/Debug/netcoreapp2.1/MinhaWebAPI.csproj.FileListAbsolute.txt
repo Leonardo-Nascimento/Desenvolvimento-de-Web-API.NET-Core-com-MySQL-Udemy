@@ -1,0 +1,14 @@
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\bin\Debug\netcoreapp2.1\MinhaWebAPI.deps.json
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\bin\Debug\netcoreapp2.1\MinhaWebAPI.runtimeconfig.json
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\bin\Debug\netcoreapp2.1\MinhaWebAPI.runtimeconfig.dev.json
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\bin\Debug\netcoreapp2.1\MinhaWebAPI.dll
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.csprojAssemblyReference.cache
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.RazorAssemblyInfo.cache
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.RazorAssemblyInfo.cs
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.AssemblyInfoInputs.cache
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.AssemblyInfo.cs
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\bin\Debug\netcoreapp2.1\MinhaWebAPI.pdb
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.dll
+C:\Users\LEO\source\repos\MinhaWebAPI\MinhaWebAPI\obj\Debug\netcoreapp2.1\MinhaWebAPI.pdb

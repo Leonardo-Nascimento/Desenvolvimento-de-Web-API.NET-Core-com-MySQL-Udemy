@@ -1,42 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using System.Data;
 
 namespace MinhaWebAPI.Util
 {
     public class DAL
     {
         private static string Server = "localhost";
-        private static string Database = "DBCLIENTE";
+        private static string Database = "dbcliente";
         private static string User = "root";
         private static string Password = "";
         private MySqlConnection Connection;
 
-        private string ConnectionString = $"Server={Server};Database={Database};Uid={User};Pwd={Password};Sslmode=none;";
+        private static string ConnectionString = $"server={Server};Database={Database};Uid={User};Pwd={Password}";
+        
 
-        public DAL() {
-            Connection = new MySqlConnection(ConnectionString);
+        public DAL()
+        {
+            Connection = new MySqlConnection(ConnectionString);            
             Connection.Open();
         }
 
-        //Executa: INSERT, UPDATE, DELETE
+        // Executa: INSERT, UPDATE, DELETE
         public void ExecutarComandoSQL(string sql)
         {
-            MySqlCommand Command = new MySqlCommand(sql, Connection);
-            Command.ExecuteNonQuery();
+            MySqlCommand command = new MySqlCommand(sql, Connection);
+            command.ExecuteNonQuery();
         }
 
         //Retorna Dados do Banco
-        public DataTable RetornarDataTable(string sql)
+        public DataTable RetornaDataTable(string sql)
         {
-            MySqlCommand Command = new MySqlCommand(sql, Connection);
-            MySqlDataAdapter DataAdaptar = new MySqlDataAdapter(Command);
+            MySqlCommand command = new MySqlCommand(sql, Connection);
+            MySqlDataAdapter DataAdapter = new MySqlDataAdapter(command);
+
             DataTable Dados = new DataTable();
-            DataAdaptar.Fill(Dados);
+            DataAdapter.Fill(Dados);
             return Dados;
         }
+
     }
 }
