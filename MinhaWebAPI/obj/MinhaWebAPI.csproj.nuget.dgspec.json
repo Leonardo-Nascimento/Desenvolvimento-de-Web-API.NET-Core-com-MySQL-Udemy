@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Leo\\Udemy\\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\\MinhaWebAPI\\MinhaWebAPI.csproj": {}
+  },
+  "projects": {
+    "D:\\Leo\\Udemy\\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\\MinhaWebAPI\\MinhaWebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Leo\\Udemy\\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\\MinhaWebAPI\\MinhaWebAPI.csproj",
+        "projectName": "MinhaWebAPI",
+        "projectPath": "D:\\Leo\\Udemy\\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\\MinhaWebAPI\\MinhaWebAPI.csproj",
+        "packagesPath": "C:\\Users\\LEO\\.nuget\\packages\\",
+        "outputPath": "D:\\Leo\\Udemy\\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\\MinhaWebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\LEO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

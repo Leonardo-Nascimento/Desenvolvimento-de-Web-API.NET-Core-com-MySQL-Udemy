@@ -11,9 +11,9 @@ namespace MinhaWebAPI.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string DataCadastro { get; set; }
+        public string Data_Cadastro { get; set; }
         public string Cpf_Cnpj { get; set; }
-        public string DataNascimento { get; set; }
+        public string Data_Nascimento { get; set; }
         public string Tipo { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
@@ -23,16 +23,47 @@ namespace MinhaWebAPI.Models
         public string Bairro { get; set; }
         public string Complemento { get; set; }
         public string Cidade { get; set; }
-        public string Uf { get; set; }
+        public string UF { get; set; }
 
         public void RegistrarCliente()
         {
             DAL objDAL = new DAL();
 
-            string sql = $"insert into cliente(nome,data_cadastro,cpf_cnpj,data_nascimento, tipo, telefone, email, cep, logradouro, numero,bairro, complemento, cidade,uf) " +
-                         $" values('{Nome}','{DateTime.Parse(DataCadastro).ToString("yyyy/MM/dd")}','{Cpf_Cnpj}','{DateTime.Parse(DataNascimento).ToString("yyyy/MM/dd")}', +" +
-                         $"'{Tipo}','{Telefone}','{Email}','{Cep}','{Logradouro}','{Numero}','{Bairro}','{Complemento}','{Cidade}','{Uf}')";
+            string sql = "insert into cliente(nome,data_cadastro, cpf_cnpj, data_nascimento, tipo, telefone, email,cep, logradouro, numero,bairro, complemento, cidade, uf) " +
+                         $"values('{Nome}','{DateTime.Parse(Data_Cadastro).ToString("yyyy/MM/dd")}','{Cpf_Cnpj}','{DateTime.Parse(Data_Nascimento).ToString("yyyy/MM/dd")}'," +
+                         $"'{Tipo}','{Telefone}','{Email}','{Cep}','{Logradouro}','{Numero}','{Bairro}','{Complemento}','{Cidade}','{UF}')";
 
+            objDAL.ExecutarComandoSQL(sql);
+        }
+
+        public void AtualizarCliente()
+        {
+            DAL objDAL = new DAL();
+
+            string sql = "update cliente set " +
+                         $"nome ='{Nome}'," +
+                         $"data_cadastro='{DateTime.Parse(Data_Cadastro).ToString("yyyy/MM/dd")}', " +
+                         $"cpf_cnpj='{Cpf_Cnpj}', " +
+                         $"data_nascimento='{DateTime.Parse(Data_Nascimento).ToString("yyyy/MM/dd")}'," +
+                         $"tipo='{Tipo}', " +
+                         $"telefone='{Telefone}', " +
+                         $"email='{Email}', " +
+                         $"cep='{Cep}', " +
+                         $"logradouro='{Logradouro}'," +
+                         $"numero='{Numero}', " +
+                         $"bairro='{Bairro}'," +
+                         $"complemento='{Complemento}'," +
+                         $"cidade='{Cidade}'," +
+                         $"uf='{UF}' where id={Id}";            
+
+            objDAL.ExecutarComandoSQL(sql);
+        }    
+        
+        public void Excluir(int id)
+        {
+            DAL objDAL = new DAL();
+
+            string sql = $"delete from cliente where id = {id}";
             objDAL.ExecutarComandoSQL(sql);
         }
 
@@ -43,8 +74,8 @@ namespace MinhaWebAPI.Models
 
             DAL objDAL = new DAL();
 
-            string sql = "select* from cliente order by nome asc";
-            DataTable dados = objDAL.RetornaDataTable(sql);
+            string sql = "select * from cliente order by nome asc";
+            DataTable dados = objDAL.RetornarDataTable(sql);
 
             for (int i = 0; i < dados.Rows.Count; i++)
             {
@@ -52,9 +83,9 @@ namespace MinhaWebAPI.Models
                 {
                     Id = int.Parse(dados.Rows[i]["Id"].ToString()),
                     Nome = dados.Rows[i]["Nome"].ToString(),
-                    DataCadastro = DateTime.Parse(dados.Rows[i]["data_cadastro"].ToString()).ToString("dd/MM/yyyy"),
+                    Data_Cadastro = DateTime.Parse(dados.Rows[i]["data_cadastro"].ToString()).ToString("dd/MM/yyyy"),
                     Cpf_Cnpj = dados.Rows[i]["cpf_cnpj"].ToString(),
-                    DataNascimento = DateTime.Parse(dados.Rows[i]["data_nascimento"].ToString()).ToString("dd/MM/yyyy"),
+                    Data_Nascimento = DateTime.Parse(dados.Rows[i]["data_nascimento"].ToString()).ToString("dd/MM/yyyy"),
                     Tipo = dados.Rows[i]["tipo"].ToString(),
                     Telefone = dados.Rows[i]["telefone"].ToString(),
                     Email = dados.Rows[i]["email"].ToString(),
@@ -62,30 +93,30 @@ namespace MinhaWebAPI.Models
                     Logradouro = dados.Rows[i]["logradouro"].ToString(),
                     Numero = dados.Rows[i]["numero"].ToString(),
                     Bairro = dados.Rows[i]["bairro"].ToString(),
-                    Complemento = dados.Rows[i]["complemento"].ToString(),
                     Cidade = dados.Rows[i]["cidade"].ToString(),
-                    Uf = dados.Rows[i]["uf"].ToString()
+                    UF = dados.Rows[i]["uf"].ToString()
                 };
+
                 lista.Add(item);
             }
             return lista;
         }
 
         public ClienteModel RetornarCliente(int id)
-        {
+        {            
             ClienteModel item;
             DAL objDAL = new DAL();
 
-            string sql = $"select* from cliente where id = {id}";
-            DataTable dados = objDAL.RetornaDataTable(sql);
-
+            string sql = $"select * from cliente where id = {id}";
+            DataTable dados = objDAL.RetornarDataTable(sql);
+       
             item = new ClienteModel()
             {
                 Id = int.Parse(dados.Rows[0]["Id"].ToString()),
                 Nome = dados.Rows[0]["Nome"].ToString(),
-                DataCadastro = DateTime.Parse(dados.Rows[0]["data_cadastro"].ToString()).ToString("dd/MM/yyyy"),
+                Data_Cadastro = DateTime.Parse(dados.Rows[0]["data_cadastro"].ToString()).ToString("dd/MM/yyyy"),
                 Cpf_Cnpj = dados.Rows[0]["cpf_cnpj"].ToString(),
-                DataNascimento = DateTime.Parse(dados.Rows[0]["data_nascimento"].ToString()).ToString("dd/MM/yyyy"),
+                Data_Nascimento = DateTime.Parse(dados.Rows[0]["data_nascimento"].ToString()).ToString("dd/MM/yyyy"),
                 Tipo = dados.Rows[0]["tipo"].ToString(),
                 Telefone = dados.Rows[0]["telefone"].ToString(),
                 Email = dados.Rows[0]["email"].ToString(),
@@ -93,14 +124,11 @@ namespace MinhaWebAPI.Models
                 Logradouro = dados.Rows[0]["logradouro"].ToString(),
                 Numero = dados.Rows[0]["numero"].ToString(),
                 Bairro = dados.Rows[0]["bairro"].ToString(),
-                Complemento = dados.Rows[0]["complemento"].ToString(),
                 Cidade = dados.Rows[0]["cidade"].ToString(),
-                Uf = dados.Rows[0]["uf"].ToString()
+                UF = dados.Rows[0]["uf"].ToString()
             };
 
-
             return item;
-
         }
     }
 }

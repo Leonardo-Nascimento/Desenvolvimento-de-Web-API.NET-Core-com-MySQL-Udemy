@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MinhaWebAPI.Models;
 using MinhaWebAPI.Util;
+using System.Data;
+using MinhaWebAPI.Models;
 
 namespace MinhaWebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
-    public class ClienteController : ControllerBase
+    public class ClienteController : Controller
     {
         // GET api/values
         [HttpGet]
-        [Route ("listagem")]
+        [Route("listagem")]
         public List<ClienteModel> Listagem()
         {
             return new ClienteModel().Listagem();
@@ -30,36 +29,56 @@ namespace MinhaWebAPI.Controllers
         }
 
         // POST api/values
-        [HttpPost]
-        [Route ("registrarCliente")]
-        public ReturnAllServices RegistrarCliente([FromBody] ClienteModel dados)
+        [HttpPost]        
+        [Route("registrarcliente")]
+        public ReturnAllServices RegistrarCliente([FromBody]ClienteModel dados)
         {
             ReturnAllServices retorno = new ReturnAllServices();
+
             try
             {
                 dados.RegistrarCliente();
                 retorno.Result = true;
-                retorno.ErrorMensege = string.Empty;
-            }catch(Exception e)
+                retorno.ErrorMessage = string.Empty;
+            }
+            catch(Exception ex)
             {
                 retorno.Result = false;
-                retorno.ErrorMensege = "Erro ao tentar registrar um cliente: " + e.Message;
+                retorno.ErrorMessage = "Erro ao tentar registrar um cliente: " + ex.Message;
             }
 
             return retorno;
-            
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Route("atualizar/{id}")]
+        public ReturnAllServices Atualizar(int id, [FromBody]ClienteModel dados)
         {
+            ReturnAllServices retorno = new ReturnAllServices();
+
+            try
+            {
+                dados.Id = id;
+                dados.AtualizarCliente();
+                retorno.Result = true;
+                retorno.ErrorMessage = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                retorno.Result = false;
+                retorno.ErrorMessage = "Erro ao tentar atualizar um cliente: " + ex.Message;
+            }
+
+            return retorno;
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("excluir/{id}")]
+        public void Excluir(int id)
         {
+            new ClienteModel().Excluir(id);
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace MinhaWebAPI.Util
 {
@@ -12,35 +13,31 @@ namespace MinhaWebAPI.Util
         private static string Server = "localhost";
         private static string Database = "dbcliente";
         private static string User = "root";
-        private static string Password = "";
+        private static string Password = "123456";
         private MySqlConnection Connection;
 
-        private static string ConnectionString = $"server={Server};Database={Database};Uid={User};Pwd={Password}";
-        
+        private string ConnectionString = $"Server={Server};Database={Database};Uid={User};Pwd={Password};Sslmode=none;charset=utf8;";
 
-        public DAL()
-        {
-            Connection = new MySqlConnection(ConnectionString);            
+        public DAL() {
+            Connection = new MySqlConnection(ConnectionString);
             Connection.Open();
         }
 
-        // Executa: INSERT, UPDATE, DELETE
+        //Executa: INSERT, UPDATE, DELETE
         public void ExecutarComandoSQL(string sql)
         {
-            MySqlCommand command = new MySqlCommand(sql, Connection);
-            command.ExecuteNonQuery();
+            MySqlCommand Command = new MySqlCommand(sql, Connection);
+            Command.ExecuteNonQuery();
         }
 
         //Retorna Dados do Banco
-        public DataTable RetornaDataTable(string sql)
+        public DataTable RetornarDataTable(string sql)
         {
-            MySqlCommand command = new MySqlCommand(sql, Connection);
-            MySqlDataAdapter DataAdapter = new MySqlDataAdapter(command);
-
+            MySqlCommand Command = new MySqlCommand(sql, Connection);
+            MySqlDataAdapter DataAdaptar = new MySqlDataAdapter(Command);
             DataTable Dados = new DataTable();
-            DataAdapter.Fill(Dados);
+            DataAdaptar.Fill(Dados);
             return Dados;
         }
-
     }
 }
