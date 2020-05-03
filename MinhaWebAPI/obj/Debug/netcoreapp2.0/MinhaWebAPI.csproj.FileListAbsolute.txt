@@ -32,9 +32,10 @@ D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\bin
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\bin\Debug\netcoreapp2.0\MinhaWebAPI.runtimeconfig.dev.json
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\bin\Debug\netcoreapp2.0\MinhaWebAPI.dll
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\bin\Debug\netcoreapp2.0\MinhaWebAPI.pdb
-D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.csproj.CoreCompileInputs.cache
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.AssemblyInfoInputs.cache
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.AssemblyInfo.cs
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.dll
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.pdb
 D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.genruntimeconfig.cache
+D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.csprojAssemblyReference.cache
+D:\Leo\Udemy\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\MinhaWebAPI\obj\Debug\netcoreapp2.0\MinhaWebAPI.csproj.CoreCompileInputs.cache

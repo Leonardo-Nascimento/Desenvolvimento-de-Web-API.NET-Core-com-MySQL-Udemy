@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhaWebAPI", "MinhaWebAPI\MinhaWebAPI.csproj", "{AF88B4D1-5A91-441C-BF62-C92EE860E646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaWebAPI", "MinhaWebAPI\MinhaWebAPI.csproj", "{AF88B4D1-5A91-441C-BF62-C92EE860E646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacaoCliente", "AplicacaoCliente\AplicacaoCliente.csproj", "{7CC6F702-1D93-4C33-A30D-C8C2B483D090}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AF88B4D1-5A91-441C-BF62-C92EE860E646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF88B4D1-5A91-441C-BF62-C92EE860E646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF88B4D1-5A91-441C-BF62-C92EE860E646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CC6F702-1D93-4C33-A30D-C8C2B483D090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC6F702-1D93-4C33-A30D-C8C2B483D090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC6F702-1D93-4C33-A30D-C8C2B483D090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC6F702-1D93-4C33-A30D-C8C2B483D090}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

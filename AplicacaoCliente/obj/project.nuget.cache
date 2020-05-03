@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mftLT1sgLVmS6BcpgHN1kobk1b+/2ho+Lcs3AuTCTZT8473hFwmEmwTQ5qWC+zbPHCVYt617slrRn9FgZRnbkA==",
+  "success": true,
+  "projectFilePath": "D:\\Leo\\Udemy\\Desenvolvimento-de-Web-API.NET-Core-com-MySQL-Udemy\\AplicacaoCliente\\AplicacaoCliente.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LEO\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,30 @@
+﻿@model ClienteModel
+@{
+    List<ClienteModel> listaClientes = ViewBag.ListaCliente;
+}
+
+<table class="table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>NOME</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+
+        @foreach (var item in (List<ClienteModel>)ViewBag.ListaClientes)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+            </tr>
+        }
+
+
+
+    </tbody>
+
+</table>

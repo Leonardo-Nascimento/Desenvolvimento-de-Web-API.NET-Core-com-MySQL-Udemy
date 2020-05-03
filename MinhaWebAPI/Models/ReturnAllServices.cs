@@ -9,5 +9,6 @@ namespace MinhaWebAPI.Models
     {
         public bool Result { get; set; }
         public string ErrorMessage { get; set; }
+        public Object objRetornado { get; set; }
     }
 }

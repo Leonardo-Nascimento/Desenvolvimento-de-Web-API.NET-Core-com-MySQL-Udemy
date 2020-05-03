@@ -54,11 +54,11 @@ namespace MinhaWebAPI.Models
                          $"bairro='{Bairro}'," +
                          $"complemento='{Complemento}'," +
                          $"cidade='{Cidade}'," +
-                         $"uf='{UF}' where id={Id}";            
+                         $"uf='{UF}' where id={Id}";
 
             objDAL.ExecutarComandoSQL(sql);
-        }    
-        
+        }
+
         public void Excluir(int id)
         {
             DAL objDAL = new DAL();
@@ -103,30 +103,34 @@ namespace MinhaWebAPI.Models
         }
 
         public ClienteModel RetornarCliente(int id)
-        {            
-            ClienteModel item;
+        {
+            ClienteModel item = new ClienteModel();
             DAL objDAL = new DAL();
 
             string sql = $"select * from cliente where id = {id}";
             DataTable dados = objDAL.RetornarDataTable(sql);
-       
-            item = new ClienteModel()
+
+            if (dados.Rows.Count > 0)
             {
-                Id = int.Parse(dados.Rows[0]["Id"].ToString()),
-                Nome = dados.Rows[0]["Nome"].ToString(),
-                Data_Cadastro = DateTime.Parse(dados.Rows[0]["data_cadastro"].ToString()).ToString("dd/MM/yyyy"),
-                Cpf_Cnpj = dados.Rows[0]["cpf_cnpj"].ToString(),
-                Data_Nascimento = DateTime.Parse(dados.Rows[0]["data_nascimento"].ToString()).ToString("dd/MM/yyyy"),
-                Tipo = dados.Rows[0]["tipo"].ToString(),
-                Telefone = dados.Rows[0]["telefone"].ToString(),
-                Email = dados.Rows[0]["email"].ToString(),
-                Cep = dados.Rows[0]["cep"].ToString(),
-                Logradouro = dados.Rows[0]["logradouro"].ToString(),
-                Numero = dados.Rows[0]["numero"].ToString(),
-                Bairro = dados.Rows[0]["bairro"].ToString(),
-                Cidade = dados.Rows[0]["cidade"].ToString(),
-                UF = dados.Rows[0]["uf"].ToString()
-            };
+                item.Id = int.Parse(dados.Rows[0]["Id"].ToString());
+                item.Nome = dados.Rows[0]["Nome"].ToString();
+                item.Data_Cadastro = DateTime.Parse(dados.Rows[0]["data_cadastro"].ToString()).ToString("dd/MM/yyyy");
+                item.Cpf_Cnpj = dados.Rows[0]["cpf_cnpj"].ToString();
+                item.Data_Nascimento = DateTime.Parse(dados.Rows[0]["data_nascimento"].ToString()).ToString("dd/MM/yyyy");
+                item.Tipo = dados.Rows[0]["tipo"].ToString();
+                item.Telefone = dados.Rows[0]["telefone"].ToString();
+                item.Email = dados.Rows[0]["email"].ToString();
+                item.Cep = dados.Rows[0]["cep"].ToString();
+                item.Logradouro = dados.Rows[0]["logradouro"].ToString();
+                item.Numero = dados.Rows[0]["numero"].ToString();
+                item.Bairro = dados.Rows[0]["bairro"].ToString();
+                item.Cidade = dados.Rows[0]["cidade"].ToString();
+                item.UF = dados.Rows[0]["uf"].ToString();
+            }
+            else
+            {
+                throw new Exception("O cliente não foi encontrado");
+            }
 
             return item;
         }

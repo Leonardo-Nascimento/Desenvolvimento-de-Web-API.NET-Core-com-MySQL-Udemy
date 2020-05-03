@@ -6,13 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using MinhaWebAPI.Util;
 using System.Data;
 using MinhaWebAPI.Models;
+using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.AspNetCore.Http;
 
 namespace MinhaWebAPI.Controllers
 {
     [Route("api/[controller]")]
     public class ClienteController : Controller
     {
-        // GET api/values
+        Autenticacao AutenticacaoServico;
+
+        public ClienteController(IHttpContextAccessor context)
+        {
+            AutenticacaoServico = new Autenticacao(context);
+        }
+
+        // GET api/
         [HttpGet]
         [Route("listagem")]
         public List<ClienteModel> Listagem()
@@ -20,16 +30,34 @@ namespace MinhaWebAPI.Controllers
             return new ClienteModel().Listagem();
         }
 
-        // GET api/values/5
+        // GET api/cliente/5
         [HttpGet]
         [Route("cliente/{id}")]
-        public ClienteModel RetornarCliente(int id)
+        public ReturnAllServices RetornarCliente(int id)
         {
-            return new ClienteModel().RetornarCliente(id);
+            ClienteModel cliente;
+            ReturnAllServices retorno = new ReturnAllServices();
+            try
+            {
+                cliente = new ClienteModel().RetornarCliente(id);
+
+                retorno.Result = true;
+                retorno.ErrorMessage = string.Empty;
+                retorno.objRetornado = cliente;
+
+            }
+            catch (Exception ex)
+            {
+                retorno.Result = false;
+                retorno.ErrorMessage = "Erro ao tentar buscar um cliente: " + ex.Message;
+
+            }
+
+            return retorno;
         }
 
-        // POST api/values
-        [HttpPost]        
+        // POST api/cliente/registrarcliente
+        [HttpPost]
         [Route("registrarcliente")]
         public ReturnAllServices RegistrarCliente([FromBody]ClienteModel dados)
         {
@@ -41,7 +69,7 @@ namespace MinhaWebAPI.Controllers
                 retorno.Result = true;
                 retorno.ErrorMessage = string.Empty;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 retorno.Result = false;
                 retorno.ErrorMessage = "Erro ao tentar registrar um cliente: " + ex.Message;
@@ -50,7 +78,7 @@ namespace MinhaWebAPI.Controllers
             return retorno;
         }
 
-        // PUT api/values/5
+        // PUT api/cliente/5
         [HttpPut]
         [Route("atualizar/{id}")]
         public ReturnAllServices Atualizar(int id, [FromBody]ClienteModel dados)
@@ -73,12 +101,26 @@ namespace MinhaWebAPI.Controllers
             return retorno;
         }
 
-        // DELETE api/values/5
+        
         [HttpDelete]
         [Route("excluir/{id}")]
-        public void Excluir(int id)
+        public ReturnAllServices Excluir(int id)
         {
-            new ClienteModel().Excluir(id);
+            ReturnAllServices retorno = new ReturnAllServices();
+
+            try
+            {
+                AutenticacaoServico.Autenticar();
+                new ClienteModel().Excluir(id);
+                retorno.Result = true;
+                retorno.ErrorMessage = "Cliente excluído com sucesso!";
+            }
+            catch(Exception ex)
+            {
+                retorno.Result = false;
+                retorno.ErrorMessage = ex.Message;
+            }
+            return retorno;
         }
     }
 }
